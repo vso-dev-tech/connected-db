@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/index.js"
   },
   "keywords": [],
   "author": "Roven Kyle Narra <102406588+Tordx@users.noreply.github.com>",
   "license": "ISC",
   "dependencies": {
     "express": "^4.19.2",
+    "mongodb": "^6.8.0",
     "mongoose": "^8.3.4",
     "morgan": "^1.10.0"
   },
