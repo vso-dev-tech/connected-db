@@ -1,10 +1,11 @@
-export interface Items {
-    _id: Object,
-    active: Boolean, 
-    branch: String,
-    itemname: String,
-    itemno: Number,
-    stocks: Number,
-    unitprice: Number, 
-    unitsales: Number, 
+export interface auth {
+    body: {
+        email: string,
+        password: string,
+    }
+};
+
+export interface validation {
+    userId: string
+    headers: any
 };
