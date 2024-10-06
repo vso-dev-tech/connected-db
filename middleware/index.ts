@@ -1,9 +1,10 @@
-import { validation } from "interface";
+import { ApiResponse } from "interface";
+
 const jwt = require("jsonwebtoken");
 
 const JWT_SECRET = process.env.JWT_SECRET; // Make sure this is set correctly
 
-const verifyToken = (req: validation, res: any, next: any) => {
+const verifyToken = (req: ApiResponse, res: any, next: any) => {
   const token = req.headers["authorization"]; // Get the Authorization header
   
   // Check if token is provided
@@ -22,8 +23,6 @@ const verifyToken = (req: validation, res: any, next: any) => {
         return res.status(500).json({ error: "Failed to authenticate token" });
       }
       
-      // If verification is successful, attach userId to the request object
-      req.userId = decoded.userId; // Assuming 'userId' is included in your token payload
       next();
     });
   } else {
