@@ -32,7 +32,7 @@ router.post("/", async (req: auth, res: any) => {
       const savetoken = "UPDATE users SET token = ? WHERE id = ?"
       await sqlquery(savetoken, [token, user.id] as never)
     } else {
-      res.status(400).json({ error: "Invalid password" });
+      res.status(400).json({ error: true, message: 'Password did not match' });
     }
   } catch (err) {
     console.error(err);
