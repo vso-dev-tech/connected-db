@@ -1,9 +1,10 @@
-import { validation } from "interface";
+import { ApiResponse } from "interface";
+
 const jwt = require("jsonwebtoken");
 
 const JWT_SECRET = process.env.JWT_SECRET; 
 
-const verifyToken = (req: validation, res: any, next: any) => {
+const verifyToken = (req: ApiResponse, res: any, next: any) => {
   const token = req.headers["authorization"]; 
   
   if (!token) {
@@ -15,11 +16,10 @@ const verifyToken = (req: validation, res: any, next: any) => {
     
     jwt.verify(actualToken, 'JWT_SECRET', (err: any, decoded: any) => {
       if (err) {
-        console.error("Token verification error:", err);
+        console.error("Token verification error:", err); 
         return res.status(500).json({ error: "Failed to authenticate token" });
       }
-      
-      req.userId = decoded.userId;
+
       next();
     });
   } else {
