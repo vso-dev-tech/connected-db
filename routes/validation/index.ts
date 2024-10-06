@@ -1,7 +1,7 @@
 
 import express from "express";
 import {validation } from "interface";
-import verifyToken from "middleware";
+import verifyToken from "middleware/validation";
 
 const router = express.Router();
 
