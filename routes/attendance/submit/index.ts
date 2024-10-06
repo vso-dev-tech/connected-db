@@ -1,9 +1,10 @@
+import submit from "middleware/attendance/submit";
 
 const Router = require('express');
-import register from "middleware/auth/register";
+
 
 const router = Router();
 
-router.post("/", register);
+router.post("/", submit);
 
 export default router;
